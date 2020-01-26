@@ -66,7 +66,7 @@ namespace LinMat4
 
             return operacjaPostfix;
         }
-        private enum Operators { Parenthesis = 0, AddSubtract = 1, MultiplyDivide = 2, Power = 3 };
+        private enum Operator { Parenthesis = 0, AddSubtract = 1, MultiplyDivide = 2, Power = 3 };
         private bool IsOperand(char c)
         {
             char[] set = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
@@ -83,19 +83,16 @@ namespace LinMat4
             else
                 return false;
         }
-        private Operators GetOperatorLevel(char c)
+        private Operator GetOperatorLevel(char c)
         {
-            Operators operatorLevel;
             if (c == '^')
-                operatorLevel = Operators.Power;
+                return Operator.Power;
             else if (c == '/' || c == '*')
-                operatorLevel = Operators.MultiplyDivide;
+                return Operator.MultiplyDivide;
             else if (c == '+' || c == '-')
-                operatorLevel = Operators.AddSubtract;
+                return Operator.AddSubtract;
             else
-                operatorLevel = Operators.Parenthesis;
-
-            return operatorLevel;
+                return Operator.Parenthesis;
         }
     }
 }
