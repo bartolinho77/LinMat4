@@ -42,23 +42,18 @@ namespace LinMat4
                         {
                             if (GetOperatorLevel(stack.Peek()) > GetOperatorLevel(tymczasowaTablicaZnakow[i]))
                             {
-                                operacjaPostfix += stack.Pop();
+                                operacjaPostfix += stack.Pop().ToString();
                             }
                         }
                     }
                     stack.Push(tymczasowaTablicaZnakow[i]);
                 }
-                //else if (tymczasowaTablicaZnakow[i] == '#')
-                //{
-                //    while (stack.Count != 0)
-                //    {
-                //        operacjaPostfix += stack.Pop().ToString();
-                //    }
-                //}
                 else
                 {
                     throw new SystemException();
                 }
+
+
 
                 if (i == tymczasowaTablicaZnakow.Length -1)
                 {
@@ -68,6 +63,7 @@ namespace LinMat4
                     }
                 }
             }
+
             return operacjaPostfix;
         }
         private enum Operators { Parenthesis = 0, AddSubtract = 1, MultiplyDivide = 2, Power = 3 };
