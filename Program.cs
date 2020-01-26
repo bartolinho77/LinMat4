@@ -7,7 +7,7 @@ namespace LinMat4
         static void Main()
         {
             Console.WriteLine("Podaj operację w formacie infix:");
-            string input = Console.ReadLine(); //@"(3*4+3)/5#";
+            string input = Console.ReadLine();
             ParserONP tool = new ParserONP();
             string output = tool.ParseExample(input);
             
