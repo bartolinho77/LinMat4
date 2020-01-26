@@ -50,7 +50,7 @@ namespace LinMat4
                 }
                 else
                 {
-                    throw new SystemException();
+                    throw new SystemException("Unexpected route occured!");
                 }
 
 
